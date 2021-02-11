@@ -21,6 +21,6 @@ jobs:
       env:
           VALIDATE_ALL_CODEBASE: false
       run: |
-       npm install
        npm run test
+       npm install
        node_modules/.bin/markdownlint ./ --ignore node_modules
