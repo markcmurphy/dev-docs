@@ -8,5 +8,10 @@
     "grunt-textlint": "^0.1.0",
     "textlint-rule-no-dead-link": "^4.6.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "markdownlint-cli": "^0.26.0"
+  },
+  "scripts": {
+    "test": "bash mdlint.sh"
+  }
 }
