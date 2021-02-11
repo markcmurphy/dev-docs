@@ -22,4 +22,5 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
       run: |
        npm install
+       npm run test
        node_modules/.bin/markdownlint ./ --ignore node_modules
