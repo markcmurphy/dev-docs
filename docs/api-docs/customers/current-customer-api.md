@@ -14,7 +14,9 @@ Suppose your application interacts dynamically with the BigCommerce storefront a
 
 You must confirm that customer's identity within the insecure environment of the user's browser before revealing any sensitive information.
 
-To address this need, bigcommerce provides a Current Customer endpoint that your app can access via JavaScript on the storefront. This endpoint allows a remote application, such as a third-party subscription billing app, to return a JWT with identifying customer details. The information is signed with your [OAuth client secret](/api-docs/getting-started/basics/authentication#authentication_client-id-secret).
+To address this need, bigcommerce provides a Current Customer endpoint that your app can access via JavaScript on the storefront. 
+
+This endpoint allows a remote application, such as a third-party subscription billing app, to return a JWT with identifying customer details. The information is signed with your [OAuth client secret](/api-docs/getting-started/basics/authentication#authentication_client-id-secret).
 
 
 <div class="HubBlock--callout">
