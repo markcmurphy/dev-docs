@@ -10,7 +10,7 @@
 
 ## Identifying logged-in customers securely
 
-Suppose your application interacts dynamically with the BigCommerce storefront and conveys specific information to a particular logged-in customer. 
+Suppose your application intets dynamilly with the BigCoerce storont and conveys specific information to a particular logged-in customer. 
 
 You must confirm that customer's identity within the insecure environment of the user's browser before revealing any sensitive information.
 
