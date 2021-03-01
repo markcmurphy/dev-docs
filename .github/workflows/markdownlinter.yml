@@ -6,19 +6,41 @@ on:
 name: markdownlinter
 
 jobs:
- build:
-   name: Lint Markdown PR
-   runs-on: ubuntu-latest
-   
-   steps:
-    - uses: actions/checkout@v1
+  lint-changelog:
+    name: Lint changelog file
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+    - name: Lint changelog file
+      uses: avto-dev/markdown-lint@v1
       with:
-       ref: ${{ github.head_ref }}
-    - uses: actions/setup-node@master
-    - name: lint all markdownfiles
-      env:
-          VALIDATE_ALL_CODEBASE: false
-      run: |
-       npm run test
-       npm install
-       node_modules/.bin/markdownlint ./ --ignore node_modules
+        rules: '/lint/rules/changelog.js'
+        config: '/lint/config/changelog.yml'
+        args: './CHANGELOG.md'
+
+
+# on:
+#   pull_request:
+#    branches:
+#    - development
+
+# name: markdownlinter
+
+# jobs:
+#  build:
+#    name: Lint Markdown PR
+#    runs-on: ubuntu-latest
+   
+#    steps:
+#     - uses: actions/checkout@v1
+#       with:
+#        ref: ${{ github.head_ref }}
+#     - uses: actions/setup-node@master
+#     - name: lint all markdownfiles
+#       env:
+#           VALIDATE_ALL_CODEBASE: false
+#       run: |
+#        npm run test
+#        npm install
+#        node_modules/.bin/markdownlint ./ --ignore node_modules
