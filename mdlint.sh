@@ -1,4 +1,3 @@
-#!/bin/bash
 files=`(git fetch origin master:master) && (git diff --name-only master)`
 for x in $files;
 do
