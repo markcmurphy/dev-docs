@@ -15,17 +15,33 @@
 #         run: |
 #           reviewdog -reporter=github-pr-review -runners=golint,govet
 
+# name: reviewdog
+# on: [pull_request]
+# jobs:
+#   misspell:
+#     name: runner / misspell
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Check out code.
+#         uses: actions/checkout@v1
+#       - name: misspell
+#         uses: reviewdog/action-misspell@v1
+#         with:
+#           github_token: ${{ secrets.github_token }}
+#           locale: "US"
+
 name: reviewdog
 on: [pull_request]
 jobs:
-  misspell:
-    name: runner / misspell
+  linter_name:
+    name: runner / <linter-name>
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code.
-        uses: actions/checkout@v1
-      - name: misspell
-        uses: reviewdog/action-misspell@v1
+      - uses: actions/checkout@v2
+      - uses: reviewdog/action-languagetool@v1
         with:
           github_token: ${{ secrets.github_token }}
-          locale: "US"
+          # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
+          reporter: github-pr-review
+          # Change reporter level if you need.
+          level: info
